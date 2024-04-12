@@ -2,6 +2,7 @@
 A chrome extension to summarize YouTube videos.
 
 ## Requirements
+The following dependencies are required in order to run this project
 - Flask ```pip install flask```
 - Youtube Transcript API ```pip install youtube-transcript-api```
 - HuggingFace Transformers ```pip install transformers```
