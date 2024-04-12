@@ -1,0 +1,6 @@
+flask
+youtube-transcript-api
+transformers
+tensorflow
+tf-keras
+torch
