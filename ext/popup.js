@@ -2,7 +2,7 @@
 const btn = document.getElementById("summarize");
 const output = document.getElementById("output");
 
-// Function to summarise and update the UI
+// Function to summarize and update the UI
 btn.addEventListener("click", function () {
   // Update the UI to indicate work in progress
   btn.disabled = true;
@@ -32,6 +32,22 @@ btn.addEventListener("click", function () {
   });
 });
 
+/*NEW CODE 2
+function generatePDF() {
+  // Get the text from the textarea
+  const text = document.getElementById("output").value;
+
+  // Create a new jsPDF instance
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF();
+
+  // Add the text to the PDF
+  pdf.text(text, 10, 10);
+
+  // Save the PDF with a name
+  pdf.save('output.pdf');
+*/
+
 // Function to save the state of the popup
 function savePopupState() {
   chrome.storage.local.set(
@@ -60,6 +76,18 @@ function restorePopupState() {
     btn.innerHTML = popupState.buttonDisabled ? "Summarising..." : "Summarise";
   });
 }
+
+//NEW CODE HERE
+// Add an event listener to respond to messages
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (
+    message.action === "url_changed" ||
+    message.action === "content_changed"
+  ) {
+    // Reinitialize the popup
+    restorePopupState(); // This will refresh the state based on your stored data
+  }
+});
 
 // Restore the popup state when the popup is loaded
 document.addEventListener("DOMContentLoaded", restorePopupState);
