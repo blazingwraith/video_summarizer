@@ -1,34 +1,52 @@
-h1 {
+h1,
+h2 {
+  color: white;
   text-align: center;
 }
+
 body {
+  background-image: url("images/bg4.jpg");
+  background-size: 100%;
+
+  /*background-color: #21262d;*/
   width: max-content;
-  max-width: 800px;
+  max-width: 500px;
+  margin: 5px 10px 5px 10px;
+  border-style: none;
 }
 button {
-  background-color: red;
+  background-color: #6ab8fd;
   color: white;
-  border-radius: 8px;
+  border-style: none;
+  border-radius: 3.5px;
   width: max-content;
   height: max-content;
   padding: 10px;
   font-size: large;
   margin: auto;
   display: block;
-  border-color: coral;
+  border-color: none;
+  font-weight: bold;
+  font-family: monospace;
 }
 button[disabled] {
-  background-color: lightcoral;
+  background-color: #99cdfb;
   color: white;
-  border-radius: 8px;
+  border-style: none;
+  border-radius: 3.5px;
   width: max-content;
   height: max-content;
   padding: 10px;
   font-size: large;
   margin: auto;
   display: block;
-  border-color: lightpink;
+  border-color: none;
+  font-weight: bold;
+  font-family: monospace;
 }
+
 p {
+  color: white;
   font-size: medium;
+  text-align: left;
 }
