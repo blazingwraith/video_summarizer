@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Youtube Summariser",
+  "name": "TubeSum",
   "description": "An extension to summarize youtube videos using the transcript",
   "version": "1.0",
   "permissions": [
@@ -8,26 +8,26 @@
     "declarativeContent",
     "storage",
     "tabs",
-    "http://127.0.0.1/*"
+    "http://127.0.0.1:5000/*"
   ],
 
   "host_permissions": ["http://127.0.0.1:5000/*"],
 
   "action": {
-    "default_title": "Summarise this video",
+    "default_title": "Summarize this video",
     "default_icon": {
-      "16": "images/icon.png",
-      "32": "images/icon.png",
-      "48": "images/icon.png",
-      "128": "images/icon.png"
+      "16": "images/icon2.png",
+      "32": "images/icon2.png",
+      "48": "images/icon2.png",
+      "128": "images/icon2.png"
     },
     "default_popup": "popup.html"
   },
 
   "icons": {
-    "16": "images/icon.png",
-    "32": "images/icon.png",
-    "48": "images/icon.png",
-    "128": "images/icon.png"
+    "16": "images/icon2.png",
+    "32": "images/icon2.png",
+    "48": "images/icon2.png",
+    "128": "images/icon2.png"
   }
 }
