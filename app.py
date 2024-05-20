@@ -17,7 +17,7 @@ def get_transcript(video_id):
     return transcript
 
 def get_summary(transcript):
-    summarizer = pipeline('summarization')
+    summarizer = pipeline('summarization', model="stevhliu/my_awesome_billsum_model")
     summary = ''
     for i in range(0, (len(transcript)//1000)+1):
         summary_text = summarizer(transcript[i*1000:(i+1)*1000])[0]['summary_text']
