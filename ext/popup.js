@@ -32,21 +32,105 @@ btn.addEventListener("click", function () {
   });
 });
 
-/*NEW CODE 2
-function generatePDF() {
-  // Get the text from the textarea
-  const text = document.getElementById("output").value;
+//doc part
+// Function to export content to Word document
+function Export2Word(element, filename = "") {
+  var preHtml =
+    "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+  var postHtml = "</body></html>";
+  var html = preHtml + document.getElementById(element).innerHTML + postHtml;
 
-  // Create a new jsPDF instance
-  const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF();
+  var blob = new Blob(["\ufeff", html], {
+    type: "application/msword",
+  });
 
-  // Add the text to the PDF
-  pdf.text(text, 10, 10);
+  // Specify link url
+  var url =
+    "data:application/vnd.ms-word;charset=utf-8," + encodeURIComponent(html);
 
-  // Save the PDF with a name
-  pdf.save('output.pdf');
-*/
+  // Specify file name
+  filename = filename ? filename + ".doc" : "document.doc";
+
+  // Create download link element
+  var downloadLink = document.createElement("a");
+
+  document.body.appendChild(downloadLink);
+
+  if (navigator.msSaveOrOpenBlob) {
+    navigator.msSaveOrOpenBlob(blob, filename);
+  } else {
+    // Create a link to the file
+    downloadLink.href = url;
+
+    // Setting the file name
+    downloadLink.download = filename;
+
+    // triggering the function
+    downloadLink.click();
+  }
+
+  document.body.removeChild(downloadLink);
+}
+
+// Adding event listener to the Export button
+document.getElementById("export").addEventListener("click", function () {
+  Export2Word("out", "summary");
+}); // Function to export content to Word document
+function Export2Word(element, filename = "") {
+  var preHtml =
+    "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+  var postHtml = "</body></html>";
+  var html = preHtml + document.getElementById(element).innerHTML + postHtml;
+
+  var blob = new Blob(["\ufeff", html], {
+    type: "application/msword",
+  });
+
+  // Specify link url
+  var url =
+    "data:application/vnd.ms-word;charset=utf-8," + encodeURIComponent(html);
+
+  // Specify file name
+  filename = filename ? filename + ".doc" : "document.doc";
+
+  // Create download link element
+  var downloadLink = document.createElement("a");
+
+  document.body.appendChild(downloadLink);
+
+  if (navigator.msSaveOrOpenBlob) {
+    navigator.msSaveOrOpenBlob(blob, filename);
+  } else {
+    // Create a link to the file
+    downloadLink.href = url;
+
+    // Setting the file name
+    downloadLink.download = filename;
+
+    // triggering the function
+    downloadLink.click();
+  }
+
+  document.body.removeChild(downloadLink);
+}
+
+//*PDF Part
+let btn1 = document.getElementById("pdfButton");
+let makepdf = document.getElementById("exportContent");
+
+btn1.addEventListener("click", function () {
+  let mywindow = window.open("", "PRINT", "height=400,width=600");
+
+  mywindow.document.write(out.innerHTML);
+
+  mywindow.document.close();
+  mywindow.focus();
+
+  mywindow.print();
+  mywindow.close();
+
+  return true;
+});
 
 // Function to save the state of the popup
 function savePopupState() {
@@ -79,7 +163,7 @@ function restorePopupState() {
 
 //NEW CODE HERE
 // Add an event listener to respond to messages
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
   if (
     message.action === "url_changed" ||
     message.action === "content_changed"
