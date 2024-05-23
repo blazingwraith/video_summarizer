@@ -1,13 +1,31 @@
-h1,
+h1 {
+  font-family: "Machel";
+  font-size: 3em;
+  color: #66fcf1;
+  margin: 0;
+  text-align: center;
+}
 h2 {
-  color: white;
+  font-family: Machel;
+  font-size: 1em;
+  margin: 20px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgb(175, 251, 232);
   text-align: center;
 }
 
 body {
-  background-image: url("images/bg4.jpg");
-  background-size: 100%;
-
+  background-image: url("bg8.jpg");
+  background-size: 200%;
+  font-family: Machel;
+  background-color: #0b0c10;
+  color: #c5c6c7;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
   /*background-color: #21262d;*/
   width: max-content;
   max-width: 500px;
@@ -15,34 +33,40 @@ body {
   border-style: none;
 }
 button {
-  background-color: #6ab8fd;
-  color: white;
-  border-style: none;
-  border-radius: 3.5px;
-  width: max-content;
-  height: max-content;
-  padding: 10px;
-  font-size: large;
-  margin: auto;
+  border: 1px solid #3498db;
+  background: none;
+  padding: 10px 10px;
+  font-size: 20px;
+  font-family: "Machel";
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10.5px;
   display: block;
-  border-color: none;
+  color: #83aade;
   font-weight: bold;
-  font-family: monospace;
+  margin: auto;
 }
-button[disabled] {
-  background-color: #99cdfb;
-  color: white;
-  border-style: none;
-  border-radius: 3.5px;
-  width: max-content;
-  height: max-content;
-  padding: 10px;
-  font-size: large;
-  margin: auto;
-  display: block;
-  border-color: none;
-  font-weight: bold;
-  font-family: monospace;
+button:hover {
+  color: #afd7e8;
+}
+button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: #3498db;
+  z-index: -1;
+  transition: 0.8s;
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+
+button:hover::before {
+  height: 180%;
 }
 
 p {
