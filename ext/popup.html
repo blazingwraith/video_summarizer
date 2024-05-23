@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html>
-    <title>Youtube Transcript Summarizer</title>
-    <link rel="stylesheet" href="popup.css">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube Video Summarizer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="popup.css" />
   </head>
-  <body>
-    <h1>Youtube Video Summarizer</h1>
-    <button id="summarize" type="button">Summarize</button>
+  <body class="popup-body">
+    <h1>TubeSum</h1>
+    <h2>An interactive Youtube transcript summarizer</h2>
+    <button class="summarize" id="summarize" type="button">Summarize</button>
     <br />
-    <button class="pdf" onclick="generatePDF()">Generate PDF</button> <br>
-    <button class="pdf" id="ppt" type="button">Generate PPT</button> <br>
-    <p id="output"></p>
+    <!--<input  type="button" value="Convert HTML to PDF" onclick="convertHTMLtoPDF()">-->
+    <button
+      class="pdf"
+      id="pdfButton"
+      value="generatePDF"
+      type="button"
+      onclick="generatePDF()"
+    >
+      Generate PDF
+    </button>
+    <br />
+    <button class="docx" id="export">Export to Word</button>
+
+    <!--<button class="ppt" id="ppt" type="button">Generate PPT</button>--><br />
+    <div id="out">
+      <h2>Summary:</h2>
+      <p id="output"></p>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>
