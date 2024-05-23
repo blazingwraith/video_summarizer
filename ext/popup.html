@@ -3,13 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Youtube Video Summarizer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <title>ZenTube</title>
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body class="popup-body">
-    <h1>TubeSum</h1>
+    <h1>ZenTube</h1>
     <h2>An interactive Youtube transcript summarizer</h2>
     <button class="summarize" id="summarize" type="button">Summarize</button>
     <br />
@@ -21,10 +19,10 @@
       type="button"
       onclick="generatePDF()"
     >
-      Generate PDF
+      Export to PDF
     </button>
     <br />
-    <button class="docx" id="export">Export to Word</button>
+    <button class="docx" id="export">Export to DOCX</button>
 
     <!--<button class="ppt" id="ppt" type="button">Generate PPT</button>--><br />
     <div id="out">
