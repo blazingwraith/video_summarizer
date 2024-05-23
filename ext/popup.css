@@ -19,17 +19,17 @@ h2 {
 body {
   background-image: url("bg8.jpg");
   background-size: 200%;
-  font-family: Machel;
+  font-family: "Machel";
   background-color: #0b0c10;
   color: #c5c6c7;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 100vh;
+  height: max-content;
   /*background-color: #21262d;*/
-  width: max-content;
+  width: 500px;
   max-width: 500px;
-  margin: 5px 10px 5px 10px;
+  margin: 5px 8px 5px 8px;
   border-style: none;
 }
 button {
