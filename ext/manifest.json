@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "TubeSum",
+  "name": "ZenTube",
   "description": "An extension to summarize youtube videos using the transcript",
   "version": "1.0",
   "permissions": [
